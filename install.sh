@@ -124,13 +124,11 @@ if [[ -n "$MISS" ]]; then die "动态库校验失败：$MISS"; fi
 echo "LDD_OK"
 
 echo "== 安装启动器与自动配置脚本 =="
-for mjs in obs-ws.mjs ws-config.mjs setup.mjs; do asset "lib/$mjs" "$HELPER_DIR/$mjs"; done
-for b in obs-captions obs-captions-setup obs-captions-doctor; do asset "bin/$b" "$BIN_DIR/$b"; chmod 755 "$BIN_DIR/$b"; done
+for mjs in obs-ws.mjs ws-config.mjs setup.mjs lang.mjs help.mjs; do asset "lib/$mjs" "$HELPER_DIR/$mjs"; done
+for b in obs-captions obs-captions-setup obs-captions-doctor obs-captions-help; do asset "bin/$b" "$BIN_DIR/$b"; chmod 755 "$BIN_DIR/$b"; done
 asset "templates/realtime-captions.scene.json" "$HELPER_DIR/templates/realtime-captions.scene.json"
-node --check "$HELPER_DIR/obs-ws.mjs"
-node --check "$HELPER_DIR/ws-config.mjs"
-node --check "$HELPER_DIR/setup.mjs"
-for b in obs-captions obs-captions-setup obs-captions-doctor; do bash -n "$BIN_DIR/$b"; done
+for mjs in obs-ws.mjs ws-config.mjs setup.mjs lang.mjs help.mjs; do node --check "$HELPER_DIR/$mjs"; done
+for b in obs-captions obs-captions-setup obs-captions-doctor obs-captions-help; do bash -n "$BIN_DIR/$b"; done
 
 echo "== 启用 obs-websocket（本机 4455，随机密码） =="
 if [[ -f "$WS_CFG" ]]; then cp -a "$WS_CFG" "$WS_CFG.bak.$(date +%s)"; fi
@@ -139,13 +137,8 @@ chmod 600 "$WS_CFG"
 
 case ":$PATH:" in
   *":$BIN_DIR:"*) ;;
-  *) printf '提示：把 %s 加入 PATH：export PATH="%s:$PATH"\n' "$BIN_DIR" "$BIN_DIR" ;;
+  *) node "$HELPER_DIR/help.mjs" --path "$BIN_DIR" ;;
 esac
 
 echo
-echo "DONE. 接下来："
-echo "  1) 完全退出正在运行的 OBS"
-echo "  2) $BIN_DIR/obs-captions"
-echo "  3) 另一个终端：$BIN_DIR/obs-captions-setup"
-echo "  4) 说一句中文；用 $BIN_DIR/obs-captions-doctor 自检"
-echo "  5) OBS 点「开始录制 / 开始直播」，字幕随画面输出"
+node "$HELPER_DIR/help.mjs" --next "$BIN_DIR"

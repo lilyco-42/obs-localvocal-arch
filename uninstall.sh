@@ -12,7 +12,7 @@ echo "  $DATA_HOME/obs-localvocal"
 echo "  $DATA_HOME/obs-captions"
 echo "  $BIN_DIR/obs-captions*"
 rm -rf "$CONFIG_HOME/obs-studio/plugins/obs-localvocal" "$DATA_HOME/obs-localvocal" "$DATA_HOME/obs-captions"
-rm -f "$BIN_DIR/obs-captions" "$BIN_DIR/obs-captions-setup" "$BIN_DIR/obs-captions-doctor"
+rm -f "$BIN_DIR/obs-captions" "$BIN_DIR/obs-captions-setup" "$BIN_DIR/obs-captions-doctor" "$BIN_DIR/obs-captions-help"
 echo "DONE. 场景里的滤镜/文本源请在 OBS 中手动删除，或保留以便重装后继续使用。"
 if compgen -G "$WS_DIR/config.json.bak.*" >/dev/null; then
   echo "obs-websocket 配置备份（需要时手动还原）："

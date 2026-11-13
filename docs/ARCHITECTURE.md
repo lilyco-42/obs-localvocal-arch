@@ -1,6 +1,10 @@
 # 原理与实测记录
 
+
+语言 / Languages：[中文](QUICKSTART.md) · [English](i18n/en/QUICKSTART.md) · [日本語](i18n/ja/QUICKSTART.md) · [한국어](i18n/ko/QUICKSTART.md) · [Español](i18n/es/QUICKSTART.md) · [Français](i18n/fr/QUICKSTART.md) · [Deutsch](i18n/de/QUICKSTART.md) · [Русский](i18n/ru/QUICKSTART.md) · [Português (Brasil)](i18n/pt-BR/QUICKSTART.md) · [العربية](i18n/ar/QUICKSTART.md) · [हिन्दी](i18n/hi/QUICKSTART.md) · [Polski](i18n/pl/QUICKSTART.md) · [i18n 说明](I18N.md) · [字幕翻译](TRANSLATION.md)
 ## 为什么不是 <code>pacman -S</code> / <code>yay -S</code>
+
+> 其它语言：终端运行 `obs-captions-help <语言码>`（如 `obs-captions-help en`）查看对应语言快速入门；`obs-captions-help --list` 列出全部。详见 [i18n 说明](I18N.md) 与 [字幕翻译](TRANSLATION.md)。
 
 - 目标机器无免密 sudo，<code>pacman -S</code> / AUR 助手装不了系统包。
 - AUR RPC 精确查询 <code>obs-localvocal</code> / <code>-bin</code> / <code>-git</code> 均无结果；<code>localvocal</code>、<code>obs whisper</code>、<code>obs transcription</code>、<code>live captions</code> 搜索也为 0。

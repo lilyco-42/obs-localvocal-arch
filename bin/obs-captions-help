@@ -1,0 +1,4 @@
+#!/bin/sh
+# Localized quick start / language list. Installed to ~/.local/bin.
+DATA="${XDG_DATA_HOME:-$HOME/.local/share}"
+exec node "$DATA/obs-captions/help.mjs" "$@"

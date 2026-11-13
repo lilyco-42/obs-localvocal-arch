@@ -1,6 +1,10 @@
 # obs-localvocal-arch
 
+
+[中文](README.md) · [English](docs/i18n/en/README.md) · [日本語](docs/i18n/ja/README.md) · [한국어](docs/i18n/ko/README.md) · [Español](docs/i18n/es/README.md) · [Français](docs/i18n/fr/README.md) · [Deutsch](docs/i18n/de/README.md) · [Русский](docs/i18n/ru/README.md) · [Português (Brasil)](docs/i18n/pt-BR/README.md) · [العربية](docs/i18n/ar/README.md) · [हिन्दी](docs/i18n/hi/README.md) · [Polski](docs/i18n/pl/README.md) · [i18n 说明](docs/I18N.md) · [字幕翻译](docs/TRANSLATION.md)
 <p align="center"><img src="assets/screenshot.png" alt="实测：中文语音在 OBS 画面下方出字" width="720"></p>
+
+> 其它语言：终端运行 `obs-captions-help <语言码>`（如 `obs-captions-help en`）查看对应语言快速入门；`obs-captions-help --list` 列出全部。详见 [i18n 说明](docs/I18N.md) 与 [字幕翻译](docs/TRANSLATION.md)。
 
 **在 Arch / CachyOS / Arch-like Linux 上，用户级安装（无需 sudo、无需 AUR）把 <code>obs-localvocal 0.6.2</code> 跑起来：说中文 → OBS 画面下方实时出现中文字幕 → 直播/录制时观众可见。**
 
@@ -64,14 +68,20 @@ uninstall.sh                      # 卸载（不动系统包）
 bin/obs-captions                  # OBS 启动包装器
 bin/obs-captions-setup            # 自动配置滤镜 + 字幕源
 bin/obs-captions-doctor           # 连接 OBS 自检
+bin/obs-captions-help             # 12 语言本地化快速入门 / 语言列表
 lib/obs-ws.mjs                    # obs-websocket 5 客户端（Node 内置 WebSocket）
 lib/ws-config.mjs                 # 生成/开启本机 WS 配置
 lib/setup.mjs                     # 幂等配置逻辑
+lib/lang.mjs                      # 语言码归一 / 自动识别（界面与字幕共用）
+lib/help.mjs                      # 12 语言安装引导文案
 scripts/install-scene-template.sh # 可选：导入干净的无屏幕采集场景集合
 templates/realtime-captions.scene.json # 可选场景模板
 docs/QUICKSTART.md                # 快速入门
 docs/GUIDE.md                     # 使用指南 / 参数 / 排障
 docs/ARCHITECTURE.md              # 原理、ABI、缺库、持久化、实测证据
+docs/I18N.md                      # i18n 说明 / 语言码 / 加一门新语言
+docs/TRANSLATION.md               # 字幕翻译与多语言识别
+docs/i18n/README.md               # 12 语言文档索引
 assets/screenshot.png             # 中文语音端到端出字截图
 ```
 
@@ -79,8 +89,9 @@ assets/screenshot.png             # 中文语音端到端出字截图
 
 - ✅ OBS 33.x（需要 <code>libobs.so.30</code>）、Arch/CachyOS/Arch-like、x86_64、有麦克风输入
 - ✅ 无 root 密码、不想用 AUR、不想编译源码
+- ✅ 12 种语言的使用文档与本地化安装引导（<code>obs-captions-help en</code>、<code>--list</code>），见 [i18n 说明](docs/I18N.md)
+- ✅ 说中文出英文字幕：<code>CAPTION_TRANSLATE=1 obs-captions-setup</code>（Whisper 内置译英，仅输出英文），见 [字幕翻译](docs/TRANSLATION.md)
 - ❌ OBS 30/31/32 或未来 ABI 变更版本（<code>libobs.so.30</code> 不匹配）
-- ❌ 需要「中译英」翻译字幕：本方案默认同语言中文；可开启 Whisper 的 <code>translate</code> 输出英文，见 GUIDE
 - ❌ 想把字幕单独作为平台字幕轨：默认关；可见字幕已经烧进画面，见 GUIDE
 
 ## 许可与致谢

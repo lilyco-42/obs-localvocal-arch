@@ -1,6 +1,10 @@
 # 使用指南
 
+
+语言 / Languages：[中文](QUICKSTART.md) · [English](i18n/en/QUICKSTART.md) · [日本語](i18n/ja/QUICKSTART.md) · [한국어](i18n/ko/QUICKSTART.md) · [Español](i18n/es/QUICKSTART.md) · [Français](i18n/fr/QUICKSTART.md) · [Deutsch](i18n/de/QUICKSTART.md) · [Русский](i18n/ru/QUICKSTART.md) · [Português (Brasil)](i18n/pt-BR/QUICKSTART.md) · [العربية](i18n/ar/QUICKSTART.md) · [हिन्दी](i18n/hi/QUICKSTART.md) · [Polski](i18n/pl/QUICKSTART.md) · [i18n 说明](I18N.md) · [字幕翻译](TRANSLATION.md)
 ## 1. 链路
+
+> 其它语言：终端运行 `obs-captions-help <语言码>`（如 `obs-captions-help en`）查看对应语言快速入门；`obs-captions-help --list` 列出全部。详见 [i18n 说明](I18N.md) 与 [字幕翻译](TRANSLATION.md)。
 
 ```text
 麦克风 → OBS「麦克风/辅助音频」→ LocalVocal 音频滤镜 → whisper.cpp（本地 CPU）
@@ -48,7 +52,7 @@ CAPTION_MODEL="$HOME/.local/share/obs-localvocal/models/ggml-base-q5_1.bin" obs-
 
 | 变量 | 默认 | 说明 |
 | --- | --- | --- |
-| <code>CAPTION_LANG</code> | <code>zh</code> | Whisper 输入语言；固定 zh 更稳 |
+| <code>CAPTION_LANG</code> | <code>zh</code> | Whisper 输入语言；接受 <code>zh</code>/<code>zh-CN</code>/<code>chinese</code>/<code>ja-JP</code> 等别名，<code>auto</code> 自动检测；固定 <code>zh</code> 更稳，见 [字幕翻译](TRANSLATION.md) |
 | <code>CAPTION_TRANSLATE</code> | 关 | 设为 <code>1</code> 开启 Whisper「翻译成英语」 |
 | <code>CAPTION_FONT</code> | <code>Noto Sans CJK SC</code> | 字体家族 |
 | <code>CAPTION_SIZE</code> | 按分辨率缩放（1080p→72） | 字号 |
@@ -114,8 +118,11 @@ Failed to register with host portal ... Connection already associated with an ap
 
 - 同语言中文（默认）：<code>CAPTION_LANG=zh</code>、<code>translate=false</code>。
 - 说中文出英文：<code>CAPTION_TRANSLATE=1 obs-captions-setup</code>（Whisper 内置翻译，不是大模型翻译）。
-- 说英文出英文字幕：<code>CAPTION_LANG=en obs-captions-setup</code>。
-- 日/韩等：改 <code>CAPTION_LANG</code> 为对应 whisper 语言码，并确保模型是多语言版。
+- 说英文出英文字幕：<code>CAPTION_LANG=en obs-captions-setup</code>；也接受 <code>english</code> / <code>en-US</code>。
+- 日/韩等：<code>CAPTION_LANG=ja</code> / <code>ko</code>（或 <code>ja-JP</code> / <code>korean</code>）；模型必须是多语言版，<code>.en</code> 专用模型会让中文乱码。
+- 自动检测：<code>CAPTION_LANG=auto obs-captions-setup</code>（写空值，代价见 [字幕翻译](TRANSLATION.md)）。
+- 完整语言码表、字体与 RTL 限制：[字幕翻译与多语言识别](TRANSLATION.md)。
+- 文档/引导语言与字幕语言互不影响：<code>obs-captions-help --list</code> 列 12 种界面语言，<code>CAPTION_UI_LANG=fr obs-captions-help</code> 看法语入门；说明见 [i18n 说明](I18N.md)。
 
 ## 8. 隐私与性能
 
