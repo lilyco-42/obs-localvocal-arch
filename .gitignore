@@ -1,0 +1,10 @@
+*.deb
+*.bin
+*.pkg.tar.zst
+*.log
+*.bak
+*.bak.*
+.DS_Store
+node_modules/
+.cache/
+dist/

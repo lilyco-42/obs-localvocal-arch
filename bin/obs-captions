@@ -1,0 +1,12 @@
+#!/bin/sh
+# Start OBS with the user-level LocalVocal libraries available.
+: "${HOME:?HOME 未设置}"
+CFG="${XDG_CONFIG_HOME:-$HOME/.config}"
+LIB="$CFG/obs-studio/plugins/obs-localvocal/bin/64bit/obs-localvocal"
+if [ -n "${LD_LIBRARY_PATH:-}" ]; then
+  LD_LIBRARY_PATH="$LIB:$LD_LIBRARY_PATH"
+else
+  LD_LIBRARY_PATH="$LIB"
+fi
+export LD_LIBRARY_PATH
+exec "${OBS_BIN:-/usr/bin/obs}" "$@"

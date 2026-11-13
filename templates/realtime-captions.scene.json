@@ -1,0 +1,313 @@
+{
+  "name": "实时字幕",
+  "DesktopAudioDevice1": {
+    "prev_ver": 553648129,
+    "name": "桌面音频",
+    "uuid": "9ad562b8-908a-4294-a28a-d7eb4948a31b",
+    "id": "pulse_output_capture",
+    "versioned_id": "pulse_output_capture",
+    "settings": {
+      "device_id": "default"
+    },
+    "mixers": 255,
+    "sync": 0,
+    "flags": 0,
+    "volume": 1,
+    "balance": 0.5,
+    "enabled": true,
+    "muted": false,
+    "push-to-mute": false,
+    "push-to-mute-delay": 0,
+    "push-to-talk": false,
+    "push-to-talk-delay": 0,
+    "hotkeys": {
+      "libobs.mute": [],
+      "libobs.unmute": [],
+      "libobs.monitor-on": [],
+      "libobs.monitor-off": [],
+      "libobs.push-to-mute": [],
+      "libobs.push-to-talk": []
+    },
+    "deinterlace_mode": 0,
+    "deinterlace_field_order": 0,
+    "monitoring_type": 0,
+    "monitoring_enabled": false,
+    "private_settings": {}
+  },
+  "AuxAudioDevice1": {
+    "prev_ver": 553648129,
+    "name": "麦克风/辅助音频",
+    "uuid": "c440262c-62e3-4c5a-bb10-840b103d64c2",
+    "id": "pulse_input_capture",
+    "versioned_id": "pulse_input_capture",
+    "settings": {
+      "device_id": "default"
+    },
+    "mixers": 255,
+    "sync": 0,
+    "flags": 0,
+    "volume": 1,
+    "balance": 0.5,
+    "enabled": true,
+    "muted": false,
+    "push-to-mute": false,
+    "push-to-mute-delay": 0,
+    "push-to-talk": false,
+    "push-to-talk-delay": 0,
+    "hotkeys": {
+      "libobs.mute": [],
+      "libobs.unmute": [],
+      "libobs.monitor-on": [],
+      "libobs.monitor-off": [],
+      "libobs.push-to-mute": [],
+      "libobs.push-to-talk": []
+    },
+    "deinterlace_mode": 0,
+    "deinterlace_field_order": 0,
+    "monitoring_type": 0,
+    "monitoring_enabled": false,
+    "private_settings": {},
+    "filters": [
+      {
+        "prev_ver": 553648129,
+        "name": "LocalVocal Transcription",
+        "uuid": "c11727d7-59ac-4e19-94e9-f9952f7c3cc6",
+        "id": "transcription_filter_audio_filter",
+        "versioned_id": "transcription_filter_audio_filter",
+        "settings": {
+          "whisper_model_path_external": "@MODEL_PATH@",
+          "buffered_output": false,
+          "buffer_num_lines": 2,
+          "buffer_num_chars_per_line": 30,
+          "vad_threshold": 0.65,
+          "segment_duration": 7000,
+          "log_level": 400,
+          "caption_to_stream": false,
+          "whisper_model_path": "!!!external!!!",
+          "whisper_language_select": "zh",
+          "subtitle_sources": "LocalVocal Subtitles",
+          "process_while_muted": false,
+          "subtitle_save_srt": false,
+          "partial_group": true,
+          "partial_latency": 1100,
+          "translate": false,
+          "backend_device": -1,
+          "enable_flash_attn": false
+        },
+        "mixers": 255,
+        "sync": 0,
+        "flags": 0,
+        "volume": 1,
+        "balance": 0.5,
+        "enabled": true,
+        "muted": false,
+        "push-to-mute": false,
+        "push-to-mute-delay": 0,
+        "push-to-talk": false,
+        "push-to-talk-delay": 0,
+        "hotkeys": {},
+        "deinterlace_mode": 0,
+        "deinterlace_field_order": 0,
+        "monitoring_type": 0,
+        "monitoring_enabled": false,
+        "private_settings": {}
+      }
+    ]
+  },
+  "sources": [
+    {
+      "prev_ver": 553648129,
+      "name": "LocalVocal Subtitles",
+      "uuid": "99335bf9-a3e9-4008-ab22-4d45267d96e6",
+      "id": "text_ft2_source",
+      "versioned_id": "text_ft2_source_v2",
+      "settings": {
+        "color": 4294967295,
+        "extents": true,
+        "extents_cx": 1500,
+        "extents_cy": 230,
+        "outline_color": 4278190080,
+        "outline_size": 7,
+        "font": {
+          "face": "Noto Sans CJK SC",
+          "flags": 0,
+          "size": 72,
+          "style": "Regular"
+        },
+        "word_wrap": true,
+        "outline": true,
+        "text": ""
+      },
+      "mixers": 0,
+      "sync": 0,
+      "flags": 0,
+      "volume": 1,
+      "balance": 0.5,
+      "enabled": true,
+      "muted": false,
+      "push-to-mute": false,
+      "push-to-mute-delay": 0,
+      "push-to-talk": false,
+      "push-to-talk-delay": 0,
+      "hotkeys": {},
+      "deinterlace_mode": 0,
+      "deinterlace_field_order": 0,
+      "monitoring_type": 0,
+      "monitoring_enabled": false,
+      "private_settings": {}
+    },
+    {
+      "prev_ver": 553648129,
+      "name": "场景",
+      "uuid": "b33a6952-0a4a-405d-8d80-d6d78585d1d5",
+      "id": "scene",
+      "versioned_id": "scene",
+      "settings": {
+        "id_counter": 3,
+        "custom_size": false,
+        "items": [
+          {
+            "name": "LocalVocal Subtitles",
+            "source_uuid": "99335bf9-a3e9-4008-ab22-4d45267d96e6",
+            "visible": true,
+            "locked": false,
+            "rot": 0,
+            "scale_ref": {
+              "x": 1920,
+              "y": 1080
+            },
+            "align": 5,
+            "bounds_type": 0,
+            "bounds_align": 5,
+            "bounds_crop": false,
+            "crop_left": 0,
+            "crop_top": 0,
+            "crop_right": 0,
+            "crop_bottom": 0,
+            "id": 3,
+            "group_item_backup": false,
+            "pos": {
+              "x": 960,
+              "y": 920
+            },
+            "pos_rel": {
+              "x": 0,
+              "y": 0.7037037037037037
+            },
+            "scale": {
+              "x": 1,
+              "y": 1
+            },
+            "scale_rel": {
+              "x": 1,
+              "y": 1
+            },
+            "bounds": {
+              "x": 1500,
+              "y": 230
+            },
+            "bounds_rel": {
+              "x": 1.5625,
+              "y": 0.42592592592592593
+            },
+            "scale_filter": "disable",
+            "blend_method": "default",
+            "blend_type": "normal",
+            "show_transition": {
+              "duration": 0
+            },
+            "hide_transition": {
+              "duration": 0
+            },
+            "private_settings": {}
+          }
+        ]
+      },
+      "mixers": 0,
+      "sync": 0,
+      "flags": 0,
+      "volume": 1,
+      "balance": 0.5,
+      "enabled": true,
+      "muted": false,
+      "push-to-mute": false,
+      "push-to-mute-delay": 0,
+      "push-to-talk": false,
+      "push-to-talk-delay": 0,
+      "hotkeys": {
+        "OBSBasic.SelectScene": [],
+        "libobs.show_scene_item.3": [],
+        "libobs.hide_scene_item.3": []
+      },
+      "deinterlace_mode": 0,
+      "deinterlace_field_order": 0,
+      "monitoring_type": 0,
+      "monitoring_enabled": false,
+      "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
+      "private_settings": {}
+    }
+  ],
+  "groups": [],
+  "scene_order": [
+    {
+      "name": "场景"
+    }
+  ],
+  "current_scene": "场景",
+  "current_program_scene": "场景",
+  "canvases": [],
+  "current_transition": "淡入淡出",
+  "transition_duration": 300,
+  "transitions": [],
+  "quick_transitions": [
+    {
+      "name": "直接切换",
+      "duration": 300,
+      "hotkeys": [],
+      "id": 1,
+      "fade_to_black": false
+    },
+    {
+      "name": "淡入淡出",
+      "duration": 300,
+      "hotkeys": [],
+      "id": 2,
+      "fade_to_black": false
+    },
+    {
+      "name": "淡入淡出",
+      "duration": 300,
+      "hotkeys": [],
+      "id": 3,
+      "fade_to_black": true
+    }
+  ],
+  "saved_projectors": [],
+  "preview_locked": false,
+  "scaling_enabled": true,
+  "scaling_level": -20,
+  "scaling_off_x": 0,
+  "scaling_off_y": 0,
+  "virtual-camera": {
+    "type2": 3
+  },
+  "modules": {
+    "scripts-tool": [],
+    "output-timer": {
+      "streamTimerHours": 0,
+      "streamTimerMinutes": 0,
+      "streamTimerSeconds": 30,
+      "recordTimerHours": 0,
+      "recordTimerMinutes": 0,
+      "recordTimerSeconds": 30,
+      "autoStartStreamTimer": false,
+      "autoStartRecordTimer": false,
+      "pauseRecordTimer": true
+    }
+  },
+  "resolution": {
+    "x": 1920,
+    "y": 1080
+  },
+  "version": 2
+}

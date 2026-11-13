@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+DATA="${XDG_DATA_HOME:-$HOME/.local/share}"
+exec node "$DATA/obs-captions/setup.mjs" "$@"
